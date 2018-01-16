@@ -8,6 +8,7 @@
 
     $username = mysqli_real_escape_string($connection, $username);
     $password = mysqli_real_escape_string($connection, $password);
+    
     $query = "SELECT * FROM users WHERE username = '{$username}' ";
     $select_users_query = mysqli_query($connection, $query);
     if (!$select_users_query) {
@@ -20,12 +21,10 @@
     }
 
       if ($username === $db_username && $password === $db_password) {
-        $_SESSION['LoggedIn'] = true;
         $_SESSION['username'] = $db_username;
         header("Location: index.php");
       }
       else {
-        $_SESSION['LoggedIn'] = false;
         header("Location: login.php");
       }
   }
