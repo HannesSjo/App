@@ -1,6 +1,12 @@
 <?php
+    $Whateva = "Login";
+    $bodyID = "login";
+    include "includes/header.php";
     session_start();
-    include 'includes/db.php';
+
+    $db_password = "";
+    $db_username = "";
+    $errorMassage = "";
 
     if (isset($_POST['login'])) {
     $username = $_POST['username'];
@@ -23,17 +29,15 @@
       $password = crypt($password, $db_password);
 
       if ($username === $db_username && $password === $db_password) {
+        $_SESSION['id'] = $db_id;
         $_SESSION['username'] = $db_username;
         header("Location: index.php");
       }
       else {
-        header("Location: login.php");
+        $errorMassage = "Fel användarnamn eller lösenord!";
       }
   }
-  $Whateva = "Login";
  ?>
-
- <?php include "includes/header.php"; ?>
 
     <form class="login animated fadeInDown" action="login.php" method="post">
           <h3>Logga in</h3>
@@ -42,5 +46,10 @@
       <input class="submit" type="submit" name="login" value="login" required>
       <a href="register.php">Ny användare? Registrera dig här</a>
     </form>
+    <?php if ($errorMassage): ?>
+      <div class="animated bounceInUp" id="alert">
+        <?php echo $errorMassage; ?>
+      </div>
+    <?php endif; ?>
   </body>
 </html>

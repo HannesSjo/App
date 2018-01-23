@@ -1,4 +1,6 @@
 <?php
+  include "db.php";
+  include "functions.php";
   if (!$Whateva){
     $Whateva = "";
   }
@@ -10,5 +12,6 @@
 <title><?php echo $Whateva; ?> | App</title>
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/login.css">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
-  <body>
+  <body id="<?php echo $bodyID;?>">

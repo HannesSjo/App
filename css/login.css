@@ -1,5 +1,6 @@
 *{
   box-sizing: border-box;
+  font-family: "Arial";
 }
 html{
   background: #159957;  /* fallback for old browsers */
@@ -8,17 +9,21 @@ html{
 }
 html, body {
   height: 100%;
+  font-family: 'Lato', sans-serif;
 }
-body{
+#login, #register{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+body{
   margin: 0;
 }
 .login{
   border: 1px solid #2980b9;
   background: #3498db;
-  border-radius: 2px;
+  border-radius: 4px;
   width: 320px;
   padding: 20px;
   text-align: center;
@@ -49,11 +54,14 @@ body{
   background: #27ae60;
   color: #ecf0f1;
 }
-div{
-  bottom: 100px;
+#alert{
   padding: 20px;
   background: #e74c3c;
   color: #fff;
+  margin: 60px;
+  font-size: 20px;
+  border-radius: 4px;
+  box-shadow: 6px 6px rgba(0,0,0,0.5);
 }
 .login a {
   text-decoration: none;
@@ -62,4 +70,62 @@ div{
 }
 .login a:hover {
   color: #999;
+}
+nav{
+  background: #242424;
+  color: #fff;
+  height: 80px;
+  line-height: 80px;
+  padding: 0 20px;
+  text-align: center;
+  position: relative;
+}
+nav a{
+  color: #ddd;
+  float: right;
+}
+nav h1{
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+section{
+  background: #ecf0f1;
+  border-radius: 10px;
+  width: 30%;
+  margin: 60px auto;
+  padding: 10px;
+  box-shadow: 6px 6px rgba(0,0,0,0.5);
+  text-align: center;
+
+}
+li{
+  padding: 20px;
+  font-size: 20px;
+  list-style: none;
+  text-align: center;
+
+}
+ul{
+  padding: 0;
+}
+section form{
+  padding: 20px 0;
+  width: 100%;
+}
+section form input{
+  margin: 0 auto;
+  display: block;
+  width: 320px;
+  margin-bottom: 10px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 2px;
+  padding: 0 10px;
+}
+section form input .submit{
+  border: none;
 }
