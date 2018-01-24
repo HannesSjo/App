@@ -99,15 +99,22 @@ section{
   margin: 60px auto;
   padding: 10px;
   box-shadow: 6px 6px rgba(0,0,0,0.5);
-  text-align: center;
+  text-align: left;
 
 }
 li{
   padding: 20px;
   font-size: 20px;
   list-style: none;
-  text-align: center;
-
+  padding-left: 40px;
+}
+li a{
+  text-decoration: none;
+  color: black;
+  padding-left: 20px;
+}
+li a:Hover{
+  color: #999;
 }
 ul{
   padding: 0;
@@ -128,4 +135,11 @@ section form input{
 }
 section form input .submit{
   border: none;
+}
+section h2 {
+  margin: 0 auto;
+  text-align: center;
+}
+section ul li a{
+  float: right;
 }

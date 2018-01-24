@@ -20,11 +20,14 @@ if (isset($_POST['submit'])) {
         <?php
           $query = "SELECT * FROM tasks WHERE user_id = {$_SESSION['id']}";
           $result = mysqli_query($connection, $query);
-
-          while ($row = mysqli_fetch_array($result)) {
-            echo "<li>" . $row['title'] . "</li>";
-          }
         ?>
+        <?php while($row = mysqli_fetch_array($result)) :?>
+
+          <li><?php echo $row['title']; ?>
+          <a class="fa fa-trash" aria-hidden="true" href="delete.php?taskID=<?php echo $row['id']; ?>"></a>
+          <a class="fa fa-pencil-square-o" aria-hidden="true" href="edit.php?taskID=<?php echo $row['id']; ?>&taskName=<?php echo $row['title']; ?>"></a>
+          </li>
+        <?php endwhile; ?>
       </ul>
         <form action="index.php" method="post">
           <input type="text" name="taskName" required>
