@@ -4,6 +4,30 @@ html body{
 }
 /* Layout END */
 
+/* Splash Screen */
+#splashScreen {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background: #000;
+  z-index: 2;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+#splashScreen:before {
+  animation: splashScreenAnimation 2.5s both;
+  content: '';
+  background: url(../img/todoLogo.svg) no-repeat center;
+  display: block;
+  height: 33.333333%;
+  width: 33.333333%;
+
+}
+/* Splash Screen END */
+
 /*Landing page*/
   video{
     object-fit: cover;
@@ -19,5 +43,32 @@ html body{
   main{
     height: 520px;
     width:  520px;
+    text-align: center;
+  }
+  main p {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+  }
+  main a {
+    font-size: 30px;
+    margin: 30px;
   }
 /*Landing page END*/
+
+/*Animation*/
+@keyframes  splashScreenAnimation {
+from {
+  opacity: 0;
+  transform: translate3d(0, -100%, 0);
+}
+75% {
+  opacity: 1;
+  transform: none;
+}
+to {
+  opacity: 0;
+  transform: translate3d(0, 100%, 0);
+}
+}
+/* Animation END */
