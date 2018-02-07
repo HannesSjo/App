@@ -1,42 +1,22 @@
 <?php
-session_start();
-$Whateva = "Welcome";
-
-include "includes/header.php";
-
-if (isset($_POST['submit'])) {
-  addTask();
-}
+  session_start();
+  $Whateva ="Username TodoList";
+  include 'includes/header.php';
 ?>
 
 <?php if (isset($_SESSION['username'])): ?>
-    <nav>
-      <a href="logout.php">Logga ut <?php echo $_SESSION['username']; ?></a>
-      <h1>App</h1>
-    </nav>
-    <section>
-      <h2>Att göra</h2>
-      <ul>
-        <?php
-          $query = "SELECT * FROM tasks WHERE user_id = {$_SESSION['id']}";
-          $result = mysqli_query($connection, $query);
-        ?>
-        <?php while($row = mysqli_fetch_array($result)) :?>
 
-          <li><?php echo $row['title']; ?>
-          <a class="fa fa-trash" aria-hidden="true" href="delete.php?taskID=<?php echo $row['id']; ?>"></a>
-          <a class="fa fa-pencil-square-o" aria-hidden="true" href="edit.php?taskID=<?php echo $row['id']; ?>&taskName=<?php echo $row['title']; ?>"></a>
-          </li>
-        <?php endwhile; ?>
-      </ul>
-        <form action="index.php" method="post">
-          <input type="text" name="taskName" required>
-          <input class="submit" type="submit" name="submit">
-        </form>
-    </section>
+  <?php include 'includes/navigation.php'; ?>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <?php include 'includes/tasks.php'; ?>
+  </div>
+</div>
 
   <?php else: ?>
-    <h1>What about u doing here? Login first <a href="login.php">here</a> </h1>
+    <div id="forbidden" class="d-flex justify-content-center align-items-center animated shake">
+      <h1>Du har inte tillgång till denna sida</h1>
+    </div>
   <?php endif; ?>
-  </body>
-</html>
+<?php include 'includes/footer.php'; ?>

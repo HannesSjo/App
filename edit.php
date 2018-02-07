@@ -19,7 +19,7 @@
    <h2>Är du säker på att du vill ändra detta inlägg?</h2>
    <input type="text" name="newTask" placeholder="New Task Text" value="<?php echo $taskName; ?>" required>
    <input type="submit" name="changeTask" value="Ändra">
-   <a href="index.php">No</a>
+   <a href="admin.php">No</a>
  </form>
 
 

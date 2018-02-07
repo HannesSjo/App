@@ -1,6 +1,7 @@
 <?php
   include "db.php";
   include "functions.php";
+    CheckIfSIsLast();
 ?>
 <!DOCTYPE html>
 <html lang="sv">

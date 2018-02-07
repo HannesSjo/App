@@ -1,6 +1,20 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700');
+/* Google FOnts END */
+
+/* Palette
+Blue: 00FFFF;
+DarkBlue: 29ABE2;
+Palette END */
+
 /* Layout */
 html body{
   height: 100vh;
+}
+body{
+  background: #232526;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 /* Layout END */
 
@@ -9,7 +23,10 @@ html body{
   align-items: center;
   display: flex;
   justify-content: center;
-  background: #000;
+  background: -webkit-radial-gradient(#414345, #232526);
+  background: -o-radial-gradient(#414345, #232526);
+  background: radial-gradient(#414345, #232526);
+  flex-direction: column;
   z-index: 2;
   position: fixed;
   bottom: 0;
@@ -26,6 +43,35 @@ html body{
   width: 33.333333%;
 
 }
+#splashScreen blockquote{
+  font-family: 'Ubuntu', sans-serif;
+  color: #fff;
+}
+#quote{
+  font-size: 48px;
+  margin: 0;
+}
+#qoute:before,#qoute:after{
+  display: inline-block;
+}
+#quote:before{
+  content: '“';
+  margin: 0 5px 0 0;
+}
+#quote:after{
+  content: '"';
+  margin: 0 0 0 5px;
+}
+#author{
+  font-size: 14px;
+  margin: 0;
+  float: right;
+  opacity: .75;
+}
+#author:before{
+  content: "—";
+  margin: 0 5px 0 0;
+}
 /* Splash Screen END */
 
 /*Landing page*/
@@ -41,16 +87,19 @@ html body{
     z-index: -1;
   }
   main{
-    height: 520px;
-    width:  520px;
     text-align: center;
+  }
+  main p span{
+    font-weight: bold;
   }
   main p {
     color: #fff;
     font-size: 24px;
     text-align: center;
+    font-family: 'Ubuntu', sans-serif;
   }
   main a {
+    font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
     margin: 30px;
   }
@@ -72,3 +121,36 @@ to {
 }
 }
 /* Animation END */
+/* Navigation */
+.navbar-brand img {
+  height: auto;
+  width: 100px;
+}
+/* Navigation END */
+
+/* Tasks */
+#tasks{
+  background: #fff;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 4px;
+  text-align: center;
+}
+#tasks h2{
+  display: inline-block;
+  font-family: 'Ubuntu', sans-serif;
+  margin: 0 auto 20px;
+  border-bottom: 1px solid black;
+  padding: 0 20px 5px;
+}
+/* Tasks END */
+
+/* Forbidden page */
+#forbidden{
+  height: 100%;
+}
+
+#forbidden h1{
+  color: #fff;
+}
+/* Forbidden page END */

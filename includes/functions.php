@@ -2,7 +2,7 @@
 
   $appName = "ToDo";
 
-  function UsernameExists($username){
+  function CheckIfUsernameExists($username){
     global $connection;
 
     $query = "SELECT username FROM users WHERE username = '$username' ";
@@ -41,7 +41,7 @@
     $taskID = $_POST['taskID'];
     $query = "DELETE FROM tasks WHERE id = $taskID";
     $deleteTaskQuery = mysqli_query($connection, $query);
-    header("location: index.php");
+    header("location: admin.php");
   }
 
 function editTask(){
@@ -50,6 +50,27 @@ function editTask(){
   $newText = $_POST['newTask'];
   $query = "UPDATE tasks SET title='$newText' WHERE id = '$taskID'";
   $updateTaskQuery = mysqli_query($connection, $query);
-  header("location: index.php");
+  header("location: admin.php");
+}
+
+function CheckIfSIsLast(){
+  global $Whateva;
+if ($Whateva == "Username TodoList") {
+    # code...
+    if (isset($_SESSION['username'])) {
+      $s = 's';
+      if (substr($_SESSION['username'], -1) == 's' || substr($_SESSION['username'], -1) == 'S') {
+        $s ='';
+      }
+      $Whateva = $_SESSION["username"] . $s . ' uppgifter';
+    }
+    else{
+      $Whateva = "No acces";
+    }
+
+    if (isset($_POST['submit'])) {
+      addTask();
+    }
+  }
 }
  ?>

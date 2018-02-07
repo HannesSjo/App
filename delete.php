@@ -18,7 +18,7 @@
    <input type="hidden" name="taskID" value="<?php echo $taskID; ?>">
    <h2>Är du säker på att du vill radera detta inlägg?</h2>
    <input type="submit" name="deleteTask" value="Ja">
-   <a href="index.php">Nej</a>
+   <a href="admin.php">Nej</a>
  </form>
 
 
