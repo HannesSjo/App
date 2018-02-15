@@ -1,8 +1,88 @@
 <?php
 
-  $appName = "ToDo";
+function appName(){
+  return "ToDo";
+}
 
-  function CheckIfUsernameExists($username){
+  // Räknar antalet registrerade användare
+function countUsers() {
+  global $connection;
+  $query = "SELECT id FROM users";
+  $result = mysqli_query($connection, $query);
+  return $numberOfUsers = mysqli_num_rows($result);
+
+}
+function registerUser(){
+    global $connection;
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if (UsernameExists($username)) {
+      return $errorMessage = "Användarnamnet finns redan!";
+    }
+    else {
+      $username = mysqli_real_escape_string($connection, $username);
+      $password = mysqli_real_escape_string($connection, $password);
+
+      $hashFormat ="$2y$10$";
+      $salt ="ThisIsSoSecureUDontUnderstand";
+      $saltyHash = $hashFormat . $salt;
+
+      $password = crypt($password, $saltyHash);
+
+      $query = "INSERT INTO users(username, password) ";
+      $query .= "VALUES ('$username', '$password')";
+
+      $result = mysqli_query($connection, $query);
+
+      if (!$result){
+        die("Query failed") . mysqli_error($connection);
+      }
+      header("Location: login.php");
+  }
+
+}
+function loginUser(){
+  $db_password = "";
+  $db_username = "";
+  global $connection;
+
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  $username = mysqli_real_escape_string($connection, $username);
+  $password = mysqli_real_escape_string($connection, $password);
+
+  $query = "SELECT * FROM users WHERE username = '{$username}' ";
+  $select_users_query = mysqli_query($connection, $query);
+
+  if (!$select_users_query) {
+    die('Query failed') . mysqli_error($connection);
+  }
+  while ($row = mysqli_fetch_array($select_users_query)){
+    global $connection;
+    $db_id = $row['id'];
+    $db_username = $row['username'];
+    $db_password = $row['password'];
+    $db_profilepic = $row['profilepic'];
+  }
+
+  $password = crypt($password, $db_password);
+
+  if ($username === $db_username && $password === $db_password) {
+    $_SESSION['id'] = $db_id;
+    $_SESSION['username'] = $db_username;
+    $_SESSION['profilepic'] = $db_profilepic;
+    header("Location: admin.php");
+  }
+  else {
+    return $errorMessage = "Fel användarnamn eller lösenord!";
+  }
+
+}
+
+  function UsernameExists($username){
     global $connection;
 
     $query = "SELECT username FROM users WHERE username = '$username' ";

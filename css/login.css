@@ -3,8 +3,11 @@
 /* Google FOnts END */
 
 /* Palette
-Blue: 00FFFF;
-DarkBlue: 29ABE2;
+Blue: #00FFFF;
+DarkBlue: #29ABE2;
+Black: #130F0E;
+White: #ECF0F1;
+Orange: #D6541D;
 Palette END */
 
 /* Layout */
@@ -12,9 +15,7 @@ html body{
   height: 100vh;
 }
 body{
-  background: #232526;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #130F0E;  /* fallback for old browsers */
 }
 /* Layout END */
 
@@ -23,9 +24,9 @@ body{
   align-items: center;
   display: flex;
   justify-content: center;
-  background: -webkit-radial-gradient(#414345, #232526);
-  background: -o-radial-gradient(#414345, #232526);
-  background: radial-gradient(#414345, #232526);
+  background: -webkit-radial-gradient(#2a211f, #130F0E);
+  background: -o-radial-gradient(#2a211f, #130F0E);
+  background: radial-gradient(#2a211f, #130F0E);
   flex-direction: column;
   z-index: 2;
   position: fixed;
@@ -59,7 +60,7 @@ body{
   margin: 0 5px 0 0;
 }
 #quote:after{
-  content: '"';
+  content: '”';
   margin: 0 0 0 5px;
 }
 #author{
@@ -90,19 +91,26 @@ body{
     text-align: center;
   }
   main p span{
-    font-weight: bold;
+    font-weight: 700;
+    color: #00FFFF;
   }
   main p {
-    color: #fff;
+    color: #ECF0F1;
     font-size: 24px;
     text-align: center;
+    text-shadow: rgba(0,0,0, .25) 2px 2px;
+    margin: 20px 0 0;
     font-family: 'Ubuntu', sans-serif;
   }
   main a {
     font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
-    margin: 30px;
+    margin-top: 10px;
   }
+  main a:first-of-type{
+    margin: 10px 10px 0 0;
+  }
+
 /*Landing page END*/
 
 /*Animation*/
@@ -128,6 +136,57 @@ to {
 }
 /* Navigation END */
 
+/* profile Header */
+#profileHeader{
+  background: #DA4453;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(45deg, #89216B, #DA4453);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(45deg, #89216B, #DA4453); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 250px;
+}
+#profileHeader figure{
+  margin: 0 auto;
+  width: 150px;
+  position: relative;
+}
+#profileHeader figure:before{
+  background: #92FE9D;
+  border: 2px solid #ECF0F1;
+  content: '';
+  border-radius: 50%;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(19,15,14,0.5);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(19,15,14,0.5);
+  box-shadow: 2px 2px 5px 0px rgba(19,15,14,0.5);
+  display: block;
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  left: 12px;
+  top: 12px;
+}
+#profileHeader figure.away:before {
+  background: #f39c12;
+}
+#profileHeader figure.offline:before {
+    background: #FF3600;
+}
+#profileHeader figure img, #profileHeader figure svg{
+  border-radius: 50%;
+  border: 8px solid #ECF0F1;
+  margin: 0 auto 10px;
+  font-size: 145px;
+  overflow: hidden;
+  color: #130F0E;
+}
+
+#profileHeader figure h2{
+  font-family: "Ubuntu" sans-serif;
+  color: #ECF0F1;
+  font-size: 31px;
+  margin: 0;
+  text-align: center;
+}
+/* profile Header END */
+
 /* Tasks */
 #tasks{
   background: #fff;
@@ -145,6 +204,56 @@ to {
 }
 /* Tasks END */
 
+/* FixThisLater */
+.uglySolutionFixLater {
+  margin: 200px auto 0;
+}
+/* FixThisLater */
+
+/* Login/Register */
+
+.userForms{
+  flex: none;
+}
+.userForms a{
+  margin: 10px auto 20px auto;
+}
+.userForms img{
+  margin: 0 auto 40px;
+}
+/* Login/Register END */
+
+/* Components */
+.btn-outline-light{
+  color: #ECF0F1;
+  border-color: #ECF0F1;
+}
+.btn-outline-light:hover {
+    color: #130F0E;
+    background-color: #ECF0F1;
+    border-color: #ECF0F1;
+}
+.btn-outline-light:not(:disabled):not(.disabled).a{
+  color: #ECF0F1;
+  background-color: #ECF0F1;
+  border-color: #ECF0F1;
+}
+.form-control {
+  background: transparent;
+  border-color: #ECF0F1;
+}
+.form-control:focus{
+  color: #00C9FF;
+  background-color: transparent;
+  border-color: #00C9FF;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba()0,201,255,.25);
+}
+.alert-danger{
+  background: #D6541D;
+  color: #ECF0F1;
+}
+/* Components END */
 /* Forbidden page */
 #forbidden{
   height: 100%;

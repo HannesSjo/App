@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="css/animate.css">
 <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -21,7 +23,7 @@
 <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
 <meta name="theme-color" content="#ffffff">
 
-<title><?php echo $Whateva . "&raquo" .  $appName ?></title>
+<title><?php echo $Whateva . "&raquo" .  appName(); ?></title>
 </head>
   <?php if (isset($bodyClass)) : ?>
     <body class="<?php echo $bodyClass;?>">

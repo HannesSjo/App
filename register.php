@@ -1,44 +1,30 @@
 <?php
 $Whateva = "Registrera";
-$bodyID = "login";
+$bodyClass = "d-flex flex-column justify-content-center align-items-center";
 include "includes/header.php";
     session_start();
 
+    $errorMassage = "";
+
     if (isset($_POST['register'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-      if (UsernameExists($username)) {
-        errorMsg("Användarnamnet finns redan!");
-      }
-      else {
-        $username = mysqli_real_escape_string($connection, $username);
-        $password = mysqli_real_escape_string($connection, $password);
-
-        $hashFormat ="$2y$10$";
-        $salt ="EMILEMILEMILEMILEMILEM";
-        $saltyHash = $hashFormat . $salt;
-
-        $password = crypt($password, $saltyHash);
-
-        $query = "INSERT INTO users(username, password) ";
-        $query .= "VALUES ('$username', '$password')";
-
-        $result = mysqli_query($connection, $query);
-
-        if (!$result){
-          die("Query failed") . mysqli_error($connection);
-        }
-        header("Location: login.php");
-    }
+      registerUser();
+      $errorMessage = registerUser();
   }
  ?>
 
-    <form class="login animated fadeInDown" action="register.php" method="post">
-          <h3>Registrera</h3>
-      <input type="text" name="username" placeholder="Username" required autofocus>
-      <input type="password" name="password" placeholder="Password" required>
-      <input class="submit" type="submit" name="register" value="Registrera">
-    </form>
-  </body>
-</html>
+    <form class="col-12 col-sm-8 col-lg-4 userForms animated fadeInDown" action="register.php" method="post">
+      <img src="img/todoLogo.svg" alt="ToDo">
+      <?php if (isset($errorMessage)): ?>
+        <div class=" alert alert-danger animated shake" id="alert"><?php echo $errorMessage; ?></div>
+      <?php endif; ?>
+    <div class="form-group">
+    <input type="text" name="username" class="form-control" placeholder="Användarnamn" required autofocus>
+  </div>
+  <div class="form-group">
+    <input type="password" name="password" class="form-control" placeholder="Lösenord" required>
+  </div>
+  <button type="submit" name="register" class="col-12 btn btn-outline-light">Registrera dig</button>
+  <a href="login.php" class="form-text text-muted text-center">Redan registrerad? Logga in här</a>
+</form>
+
+<?php include 'includes/footer.php'; ?>

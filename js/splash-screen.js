@@ -6,29 +6,29 @@ $( document ).ready(function() {
 
   var quotes = [
     {
-      qoute: "Citat 1",
-      author: "Author 1"
+      quote: "Oh my God Inhuman Reactions!",
+      author: "Anders B"
     },
     {
-      qoute: "Citat 2",
-      author: "Author 2"
+      quote: "What can you do the man is a god!",
+      author: "Emil H"
     },
     {
-      qoute: "Citat 3",
-      author: "Author 3"
+      quote: "But can u do this!",
+      author: "Felix K"
     },
     {
-      qoute: "Citat 4",
-      author: "Author 4"
+      quote: "Kqly vac ban!",
+      author: "Adil B"
     }
   ];
   var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
     $('body').prepend('<header id="splashScreen"></header>');
     $('#splashScreen').prepend('<blockquote></blockquote>');
-    $('blockquote').append('<p id="quote">What can u do the man is a god</p>');
-    $('blockquote').append('<footer id="author">Biby</footer>');
-    $('#quote').html(randomQuote.qoute);
+    $('blockquote').append('<p id="quote"></p>');
+    $('blockquote').append('<footer id="author"></footer>');
+    $('#quote').html(randomQuote.quote);
     $('#author').html(randomQuote.author);
     $("#splashScreen").show().delay(2500).fadeOut();
     sessionStorage.setItem('splashScreen', 'true');
